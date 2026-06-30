@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل المعرض — Upper Gate Egypt 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14181F;
+  --ink-2:#1C212B;
+  --ink-3:#262D39;
+  --paper:#EDE7DC;
+  --paper-dim:#B9B2A4;
+  --gold:#C9A05C;
+  --gold-soft:#C9A05C33;
+  --teal:#4C7C73;
+  --teal-soft:#4C7C7333;
+  --terra:#B5533C;
+  --terra-soft:#B5533C33;
+  --line:#FFFFFF14;
+  --radius:14px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:
+    radial-gradient(1200px 600px at 85% -10%, #2A3142 0%, transparent 60%),
+    var(--ink);
+  color:var(--paper);
+  font-family:'Tajawal',sans-serif;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+.display{font-family:'Markazi Text',serif;}
+
+/* ===== Header ===== */
+header{
+  padding:28px 32px 18px;
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;
+}
+.brand-eyebrow{
+  font-size:13px;letter-spacing:.04em;color:var(--gold);
+  font-weight:700;margin-bottom:6px;
+}
+.brand-title{
+  font-family:'Markazi Text',serif;
+  font-size:42px;font-weight:700;line-height:1;color:var(--paper);
+}
+.brand-sub{color:var(--paper-dim);font-size:14px;margin-top:6px;}
+.dates{
+  display:flex;gap:10px;
+}
+.date-chip{
+  border:1px solid var(--line);border-radius:10px;
+  padding:8px 14px;font-size:13px;color:var(--paper-dim);
+  background:var(--ink-2);
+}
+.date-chip b{color:var(--paper);display:block;font-size:15px;font-weight:700;}
+
+/* ===== Layout ===== */
+.wrap{display:flex;gap:0;max-width:1400px;margin:0 auto;}
+.main{flex:1;min-width:0;padding:24px 32px 60px;}
+.aside{
+  width:280px;flex-shrink:0;
+  border-left:1px solid var(--line);
+  padding:24px 20px 40px;
+  position:sticky;top:0;align-self:flex-start;
+  max-height:100vh;overflow-y:auto;
+}
+.aside h3{
+  font-size:12px;letter-spacing:.06em;color:var(--paper-dim);
+  text-transform:uppercase;font-weight:700;margin:22px 0 10px;
+}
+.aside h3:first-child{margin-top:0;}
+
+/* search */
+.search-box{
+  position:relative;margin-bottom:6px;
+}
+.search-box input{
+  width:100%;background:var(--ink-2);border:1px solid var(--line);
+  border-radius:10px;padding:11px 14px;color:var(--paper);
+  font-family:inherit;font-size:14px;outline:none;
+  transition:border-color .15s;
+}
+.search-box input:focus{border-color:var(--gold);}
+.search-box input::placeholder{color:var(--paper-dim);}
+
+/* filter chips */
+.chip-group{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{
+  border:1px solid var(--line);background:var(--ink-2);
+  color:var(--paper-dim);padding:7px 12px;border-radius:20px;
+  font-size:13px;cursor:pointer;user-select:none;
+  transition:.15s;font-family:inherit;
+}
+.chip:hover{border-color:var(--gold-soft);color:var(--paper);}
+.chip.active{
+  background:var(--gold-soft);border-color:var(--gold);color:var(--gold);
+  font-weight:700;
+}
+.chip.active.teal-active{background:var(--teal-soft);border-color:var(--teal);color:#9fd6c9;}
+.chip.active.terra-active{background:var(--terra-soft);border-color:var(--terra);color:#e6a08f;}
+
+.clear-btn{
+  margin-top:18px;width:100%;background:transparent;border:1px dashed var(--line);
+  color:var(--paper-dim);padding:9px;border-radius:10px;font-size:12.5px;
+  cursor:pointer;font-family:inherit;
+}
+.clear-btn:hover{color:var(--gold);border-color:var(--gold-soft);}
+
+.result-count{color:var(--paper-dim);font-size:13px;margin-bottom:16px;}
+.result-count b{color:var(--gold);}
+
+/* ===== Cards grid ===== */
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
+  gap:16px;
+}
+.card{
+  background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 18px 16px;cursor:pointer;transition:.18s;
+  display:flex;flex-direction:column;gap:10px;
+}
+.card:hover{
+  border-color:var(--gold-soft);transform:translateY(-2px);
+  box-shadow:0 12px 30px -14px #00000080;
+}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+.card-company{font-size:11.5px;color:var(--gold);letter-spacing:.03em;font-weight:700;}
+.card-title{font-family:'Markazi Text',serif;font-size:25px;font-weight:700;color:var(--paper);line-height:1.15;}
+.card-loc{font-size:13px;color:var(--paper-dim);display:flex;align-items:center;gap:5px;}
+.type-tag{
+  flex-shrink:0;font-size:11px;padding:4px 9px;border-radius:8px;font-weight:700;
+  white-space:nowrap;
+}
+.tag-res{background:var(--gold-soft);color:var(--gold);}
+.tag-com{background:var(--terra-soft);color:#e6a08f;}
+.tag-hotel{background:var(--teal-soft);color:#9fd6c9;}
+.tag-mixed{background:#7c6fb533;color:#b8acec;}
+
+.card-facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px;}
+.fact{
+  font-size:12px;color:var(--paper-dim);background:var(--ink-3);
+  padding:5px 9px;border-radius:7px;border:1px solid var(--line);
+}
+.fact b{color:var(--paper);font-weight:700;}
+.card-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:4px;padding-top:10px;border-top:1px solid var(--line);
+}
+.price-from{font-size:14px;color:var(--paper);}
+.price-from b{color:var(--gold);font-weight:700;}
+.delivery-badge{font-size:11.5px;color:var(--paper-dim);}
+.delivery-badge.now{color:#9fd6c9;font-weight:700;}
+
+.empty-state{
+  text-align:center;padding:70px 20px;color:var(--paper-dim);
+}
+.empty-state .display{font-size:30px;color:var(--paper);display:block;margin-bottom:8px;}
+
+/* ===== Detail Drawer ===== */
+.overlay{
+  position:fixed;inset:0;background:#0008;backdrop-filter:blur(2px);
+  z-index:50;opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.overlay.open{opacity:1;pointer-events:auto;}
+.drawer{
+  position:fixed;top:0;left:0;height:100vh;width:min(560px,92vw);
+  background:var(--ink);border-right:1px solid var(--line);
+  z-index:51;transform:translateX(-105%);transition:transform .28s cubic-bezier(.2,.8,.2,1);
+  overflow-y:auto;
+}
+.drawer.open{transform:translateX(0);}
+.drawer-head{
+  padding:26px 26px 18px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:var(--ink);z-index:2;
+}
+.drawer-close{
+  position:absolute;left:18px;top:18px;background:var(--ink-2);border:1px solid var(--line);
+  color:var(--paper-dim);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:16px;
+}
+.drawer-close:hover{color:var(--gold);border-color:var(--gold-soft);}
+.drawer-company{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.03em;}
+.drawer-title{font-family:'Markazi Text',serif;font-size:36px;font-weight:700;margin:4px 0 8px;}
+.drawer-loc{color:var(--paper-dim);font-size:14px;}
+.drawer-body{padding:22px 26px 50px;}
+.section{margin-bottom:26px;}
+.section-label{
+  font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--gold);
+  font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px;
+}
+.section-label::after{content:'';flex:1;height:1px;background:var(--line);}
+
+.kv-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.kv{background:var(--ink-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;}
+.kv .k{font-size:11.5px;color:var(--paper-dim);margin-bottom:2px;}
+.kv .v{font-size:14.5px;color:var(--paper);font-weight:700;}
+
+table.plan-table{width:100%;border-collapse:collapse;font-size:13.5px;}
+table.plan-table th{
+  text-align:right;color:var(--paper-dim);font-weight:700;font-size:12px;
+  padding:8px 10px;border-bottom:1px solid var(--line);
+}
+table.plan-table td{padding:9px 10px;border-bottom:1px solid var(--line);color:var(--paper);}
+table.plan-table tr:last-child td{border-bottom:none;}
+table.plan-table td.hl{color:var(--gold);font-weight:700;}
+
+.price-table-wrap{overflow-x:auto;}
+
+.unit-pill{
+  display:inline-flex;justify-content:space-between;width:100%;
+  background:var(--ink-2);border:1px solid var(--line);border-radius:10px;
+  padding:10px 13px;margin-bottom:7px;font-size:13.5px;
+}
+.unit-pill .name{color:var(--paper-dim);}
+.unit-pill .val{color:var(--gold);font-weight:700;}
+
+.opportunity{
+  background:linear-gradient(135deg,#2A3142,var(--ink-2));
+  border:1px solid var(--gold-soft);border-radius:12px;padding:16px;
+  font-size:14px;line-height:1.8;color:var(--paper);
+}
+.opportunity .who{color:var(--gold);font-weight:700;font-size:13px;display:block;margin-bottom:4px;}
+
+.contact-bar{
+  background:var(--ink-2);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:10px;
+}
+.contact-bar div{font-size:13px;color:var(--paper-dim);}
+.contact-bar b{color:var(--paper);display:block;font-size:15px;}
+
+@media (max-width:880px){
+  .wrap{flex-direction:column;}
+  .aside{
+    width:100%;border-left:none;border-bottom:1px solid var(--line);
+    position:static;max-height:none;
+  }
+  .main{padding:20px 18px 50px;}
+  header{padding:22px 18px 16px;}
+  .brand-title{font-size:32px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="brand-eyebrow">دليل البروكر السريع</div>
+    <div class="brand-title display">Upper Gate Egypt 2026</div>
+    <div class="brand-sub">كل عروض المعرض في مكان واحد — دوّر، قارن، واطلع بالتفاصيل وانت قدام العميل</div>
+  </div>
+  <div class="dates">
+    <div class="date-chip">المنيا<b>3 – 4 يوليو</b></div>
+    <div class="date-chip">سوهاج<b>10 – 11 يوليو</b></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="aside">
+    <h3>بحث</h3>
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="دور على شركة، مشروع، أو منطقة...">
+    </div>
+
+    <h3>نوع المشروع</h3>
+    <div class="chip-group" id="typeFilters"></div>
+
+    <h3>الاستلام</h3>
+    <div class="chip-group" id="deliveryFilters"></div>
+
+    <h3>مناسب لـ</h3>
+    <div class="chip-group" id="audienceFilters"></div>
+
+    <h3>الشركة</h3>
+    <div class="chip-group" id="companyFilters"></div>
+
+    <button class="clear-btn" id="clearBtn">مسح كل الفلاتر</button>
+  </aside>
+
+  <main class="main">
+    <div class="result-count" id="resultCount"></div>
+    <div class="grid" id="grid"></div>
+  </main>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<div class="drawer" id="drawer"></div>
+
+<script>
+/* ======================= DATA ======================= */
+const DATA = [
+  // ---------------- Prime Developments ----------------
+  {
+    id:'prime-ion', company:'Prime Developments', name:'ION Residence', type:'res',
+    typeLabel:'سكني SMART', location:'R8 — العاصمة الإدارية', delivery:'2.5–4 سنوات', deliveryNow:false,
+    priceFrom:'6.1 مليون ج.م', area:'118م – 261م + جاردن',
+    audience:['family','investor_mid','luxury'],
+    facts:[['المساحة الكلية','40 فدان'],['نسبة البناء','18%'],['الشريك','WE — اتصالات']],
+    kv:[['التشطيب','Fully Finished'],['عدد المباني','7 مباني / 12 عمارة'],['استلام مرحلة 1','2.5 سنة'],['استلام مرحلة 2','4 سنوات']],
+    units:[['2 غرفة 118م','6,111,810 ج.م'],['2 غرفة 129م','6,681,555 ج.م'],['3 غرفة 153م','7,380,720 ج.م'],['3 غرفة 190م','9,251,591 ج.م'],['4 غرفة 222م','10,884,660 ج.م'],['دوبلكس 261م+27م جاردن','12,778,500 ج.م']],
+    plans:[['الأول','6%','6 سنوات','10%'],['الثاني','7%','7 سنوات','7.5%'],['الثالث','8%','8 سنوات','5%'],['الرابع','9%','9 سنوات','2.5%'],['الخامس','10%','10 سنوات','0% (أقساط ثابتة)'],['السادس','11%','11 سنة','0% (متصاعدة)']],
+    notes:'صيانة 8% قبل الاستلام بـ6 شهور · خصم كاش 35% · خصم إضافي 2% بالمعرض (عدا أنظمة 11–12 سنة)',
+    opportunity:'أول كمبوند ذكي بالكامل في العاصمة — مثالي لصاحب رأس المال المتوسط الباحث عن تشطيب فاخر جاهز بدون تكلفة إضافية.'
+  },
+  {
+    id:'prime-mid', company:'Prime Developments', name:'Midtower', type:'mixed',
+    typeLabel:'إداري/تجاري', location:'الداون تاون — MU4-41', delivery:'2.5 سنة', deliveryNow:false,
+    priceFrom:'2.48 مليون ج.م', area:'مكاتب من 31م',
+    audience:['investor','business'],
+    facts:[['الإطلالة','سنترال بارك 250م'],['الإنشاءات','صب الدور السابع'],['موقف سيارات','3 أدوار']],
+    kv:[['مساحة الأرض','4,646 م'],['التصميم','حرف L — 90% فيو حديقة'],['المقدم','10%'],['التقسيط','10 سنوات']],
+    units:[['مكتب إداري 31م','2,480,000 ج.م'],['محل تجاري (أقل سعر)','6,500,000 ج.م']],
+    plans:[['نظام السداد','10%','10% بعد سنة + 10% بعد سنتين + الباقي 10 سنوات','صيانة 10%']],
+    notes:'خصم إضافي 2% بالمعرض على جميع أنظمة السداد',
+    opportunity:'مكتب 31م بـ2.8 مليون، مقدم 280 ألف وقسط شهري 16 ألف — يستلم بعد 2.5 سنة ويعيش على الإيجار.'
+  },
+  {
+    id:'prime-harmont', company:'Prime Developments', name:'Harmont Tower', type:'mixed',
+    typeLabel:'إداري/تجاري', location:'الداون تاون — MU4-3', delivery:'غير محدد', deliveryNow:false,
+    priceFrom:'حسب نظام Midtower', area:'أرضي + 12 دور',
+    audience:['investor','business'],
+    facts:[['مساحة الأرض','2,600 م'],['المحور','الشرقي للداون تاون'],['الجاردن المقابل','8 أفدنة']],
+    kv:[['أرضي–ثاني','تجاري'],['ثالث–12','إداري'],['المقدم','10%'],['التقسيط','10 سنوات']],
+    units:[['نظام السداد','مطابق لـ Midtower بالكامل']],
+    plans:[['موحّد','10%','10% بعد سنة + 10% بعد سنتين + الباقي 10 سنوات','صيانة 10%']],
+    notes:'بجوار سوق الذهب ومحطة المونوريل — شارع 70م',
+    opportunity:'موقع على أهم محاور العاصمة بجوار سوق الذهب، فرصة قوية للمستثمر التجاري.'
+  },
+
+  // ---------------- DIG ----------------
+  {
+    id:'dig-defaf', company:'Deals Investment Group (DIG)', name:'DEFAF Compound (ضِفاف)', type:'res',
+    typeLabel:'سكني فندقي', location:'R8 — العاصمة الإدارية', delivery:'3.9 سنوات', deliveryNow:false,
+    priceFrom:'1.66 مليون ج.م (بعد الخصم)', area:'Studio 55م – بنتهاوس 220م',
+    audience:['family','investor_mid','luxury'],
+    facts:[['المساحة','22 فدان'],['نسبة البناء','16.5%'],['الشريك','San Stefano Hotel']],
+    kv:[['نسبة المسطحات المائية','83.5%'],['عدد المباني','7'],['صيانة','8%'],['Clubhouse','مجاني']],
+    units:[['Studio 60م','1,662,727 ج.م (بعد خصم)'],['1 غرفة 75م','1,897,678 ج.م'],['2 غرفة 115م','3,140,707 ج.م'],['3 غرفة 150م','3,735,112 ج.م'],['بنتهاوس 220م+90م','9,000,000 ج.م (قبل خصم)']],
+    plans:[['الأول','15%','بدون دفعات وسط — 12 سنة','25%'],['الثاني','10%','+5% بعد 6 شهور — 12 سنة','20%'],['الثالث','5%','+5% بعد 6 شهور + 5% بعد سنة','15%']],
+    notes:'Parking 150,000 ج.م · خصم معرض إضافي 10% + Cash Back 15% (إجمالي يصل 25%)',
+    opportunity:'وحدة 306-B9 ستوديو 60م بإطلالة Clubhouse وحمام سباحة: مقدم 297,600 ج.م، قسط شهري 9,700 فقط.'
+  },
+  {
+    id:'dig-tracks', company:'Deals Investment Group (DIG)', name:'Downtown Tracks', type:'mixed',
+    typeLabel:'إداري/تجاري', location:'الداون تاون — Tracks 10/12/14/20/REV', delivery:'3.5 سنوات', deliveryNow:false,
+    priceFrom:'4.3 مليون ج.م (بعد خصم)', area:'مكاتب 39م وما فوق',
+    audience:['investor','business'],
+    facts:[['عائد إيجاري إلزامي','10% سنوياً — 5 سنوات'],['الواجهة','حديقة مركزية + بلازا'],['شارع رئيسي','50م']],
+    kv:[['مكتب نموذجي','39م — الدور 15'],['السعر قبل الخصم','4,798,950 ج.م'],['السعر بعد الخصم','4,319,055 ج.م'],['عائد شهري تقريبي','36,000 ج.م']],
+    units:[['Track 20 — مكتب 39م','4,319,055 ج.م (بعد الخصم)']],
+    plans:[['نظام السداد','15%','12 سنة','25% (10% فوري + Cash Back 15%)']],
+    notes:'الإيجار السنوي الإلزامي يغطي القسط الشهري ويحقق فائض',
+    opportunity:'مستثمر العائد الشهري: يدفع 4.3 مليون، يستلم 3.5 سنة، ويؤجره إلزامي بـ36 ألف شهرياً لمدة 5 سنوات.'
+  },
+
+  // ---------------- SUD Development ----------------
+  {
+    id:'sud-ch2', company:'SUD Development', name:'Capital Heights 2', type:'res',
+    typeLabel:'سكني', location:'منطقة المستثمرين — العاصمة', delivery:'فوري/سنة/سنتين', deliveryNow:true,
+    priceFrom:'حسب المساحة', area:'140م – 406م (دوبلكس)',
+    audience:['family','luxury'],
+    facts:[['المساحة','57 فدان'],['نسبة الإنجاز','70%'],['نادي رياضي','10 أفدنة مجاني']],
+    kv:[['التشطيب','Fully Finished'],['المقدم','10%'],['التقسيط','10 سنوات'],['صيانة','5%']],
+    units:[['شقق متكرر','140م – 280م'],['دوبلكس','304م – 406م']],
+    plans:[['موحّد','10%','10 سنوات','—']],
+    notes:'مداخل 2 رئيسية · Strip Mall داخلي · مواقف تحت الأرض',
+    opportunity:'مقدم 10% فقط، تقسيط حتى 10 سنوات، تشطيب كامل ونادي 10 أفدنة مجاني — مناسب للعائلة الراقية وصاحب رأس المال المتوسط.'
+  },
+  {
+    id:'sud-hub2', company:'SUD Development', name:'HUB 2', type:'com',
+    typeLabel:'تجاري', location:'منطقة المستثمرين — العاصمة', delivery:'فوري', deliveryNow:true,
+    priceFrom:'حسب المتر', area:'24م – 155م',
+    audience:['business','investor'],
+    facts:[['نسبة الإنجاز','100%'],['الاستخدام','كل الأنشطة التجارية'],['ملاحظة','HUB 1 تم بيعه بالكامل']],
+    kv:[['مساحة المشروع','30,000 م²'],['الجاهزية','تشغيل فوري'],['—',''],['—','']],
+    units:[['محلات 24م – 155م','حسب الموقع والدور']],
+    plans:[['حسب الاتفاق','—','—','—']],
+    notes:'منطقة حيوية — نسبة إشغال إنشاءات 100%',
+    opportunity:'محل تجاري بمساحات متنوعة ونسبة إشغال 100%، منطقة حيوية واستلام فوري للمستثمر التجاري.'
+  },
+  {
+    id:'sud-fh', company:'SUD Development', name:'Financial Hub', type:'mixed',
+    typeLabel:'إداري/تجاري', location:'الحي المالي — أمام المونوريل', delivery:'فوري', deliveryNow:true,
+    priceFrom:'حسب المتر', area:'مكاتب وعيادات',
+    audience:['business','investor'],
+    facts:[['الموقع','3 نواصي على المونوريل'],['شهادة','LEED مبنى أخضر'],['طاقة شمسية','نعم']],
+    kv:[['مساحة الأرض','6,000 م²'],['الأدوار','أرضي+6+2 بدروم'],['المقدم','15%'],['التقسيط','6 سنوات']],
+    units:[['مكتب نموذجي','حسب الدور والمساحة']],
+    plans:[['موحّد','15%','6 سنوات — أقساط متساوية','حافز 1.5%']],
+    notes:'2 بدروم باركينج · 4 غرف اجتماعات · إنذار حريق متكامل',
+    opportunity:'موقع استراتيجي بامتياز على 3 واجهات، جاهز للتشغيل الفوري وحاصل على شهادة LEED — مناسب لرجل الأعمال.'
+  },
+
+  // ---------------- Dubai Misr ----------------
+  {
+    id:'dm-grand', company:'Dubai Misr', name:'Lumia Grand Hotel', type:'hotel',
+    typeLabel:'فندقي', location:'بجوار EXPO CITY والسفارات', delivery:'غير محدد', deliveryNow:false,
+    priceFrom:'4.33 مليون ج.م', area:'49.6م',
+    audience:['investor'],
+    facts:[['بجوار','154 سفارة وقنصلية'],['بجوار','6 جامعات دولية'],['الخدمة','فندق 5 نجوم']],
+    kv:[['الوحدة','F-804-A — الدور 8'],['المقدم','10%'],['التقسيط','9 سنوات'],['القسط الشهري','36,000 ج.م']],
+    units:[['وحدة فندقية 49.6م','4,334,000 ج.م']],
+    plans:[['موحّد','10%','9 سنوات','0%']],
+    notes:'خدمات فندقية كاملة: مطاعم، جيم، سبا، جاكوزي، لوبي فاخر',
+    opportunity:'وحدة فندقية بجوار مدينة المعارض والسفارات، عائد فندقي ممتاز للمستثمر الفندقي.'
+  },
+  {
+    id:'dm-residence', company:'Dubai Misr', name:'Lumia Residence', type:'res',
+    typeLabel:'سكني', location:'R8 — العاصمة الإدارية', delivery:'12/2027', deliveryNow:false,
+    priceFrom:'7.0 مليون ج.م', area:'149م – 173م',
+    audience:['family'],
+    facts:[['3 غرفة Wide View','149م'],['3 غرفة Lagoon View','173م'],['Parking & Club','250,000 ج.م']],
+    kv:[['نظام A','مقدم 10% — 7 سنوات'],['خصم A','5%'],['نظام B','مقدم 15% — 8 سنوات'],['صيانة','10%']],
+    units:[['3 غرفة Wide View 149م','7,003,000 ج.م'],['3 غرفة Lagoon View 173م','9,204,000 ج.م']],
+    plans:[['A','10%','7 سنوات','5%'],['B','15%','8 سنوات','5%']],
+    notes:'استلام ديسمبر 2027',
+    opportunity:'شقة 3 غرف بفيو بحيرة، تشطيب جيد واستلام قريب نسبياً — مناسبة للعائلة الراقية.'
+  },
+  {
+    id:'dm-lagoons', company:'Dubai Misr', name:'Lumia Lagoons', type:'res',
+    typeLabel:'سكني', location:'R7 — العاصمة الإدارية', delivery:'12/2028', deliveryNow:false,
+    priceFrom:'6.8 مليون ج.م', area:'154م – 175م',
+    audience:['family'],
+    facts:[['بحيرات صناعية','نعم'],['نظام B خصم','20%'],['Parking & Club','300,000 ج.م']],
+    kv:[['نظام A','10% — 10 سنوات'],['نظام B','20% — 5 سنوات'],['صيانة','10%'],['الاستلام','12/2028']],
+    units:[['3 غرفة Wide View 154م','6,800,000 ج.م'],['3 غرفة Lagoon View 175م','8,805,000 ج.م']],
+    plans:[['A','10%','10 سنوات','5%'],['B','20%','5 سنوات','20%']],
+    notes:'خصم يصل إلى 20% في عروض المعرض',
+    opportunity:'فيو مباشر على بحيرة صناعية بخصم يصل 20% عند مقدم 20% وتقسيط 5 سنوات فقط.'
+  },
+  {
+    id:'dm-mall', company:'Dubai Misr', name:'Lumia Mall', type:'com',
+    typeLabel:'تجاري', location:'العاصمة الإدارية', delivery:'4/2029', deliveryNow:false,
+    priceFrom:'7.75 مليون ج.م', area:'51م – 76م',
+    audience:['business','investor'],
+    facts:[['أرضي','57+19م'],['أول','53م'],['ثاني','51م']],
+    kv:[['Plan A','10% — 10 سنوات'],['خصم A','8%'],['Plan B','20% — 5 سنوات'],['خصم B','20%']],
+    units:[['أرضي 57+19م','13,333,000 ج.م'],['أول 53م','8,704,000 ج.م'],['ثاني 51م','7,752,000 ج.م']],
+    plans:[['Plan A','10%','10 سنوات','8%'],['Plan B','20%','5 سنوات','20%']],
+    notes:'استلام أبريل 2029',
+    opportunity:'محل تجاري بخصم يصل إلى 20%، فرصة جيدة للمستثمر التجاري طويل النفس.'
+  },
+  {
+    id:'dm-obsidier', company:'Dubai Misr', name:'Obsidier Tower', type:'mixed',
+    typeLabel:'إداري/تجاري/طبي', location:'محور بن زايد — النهر الأخضر', delivery:'10/2027', deliveryNow:false,
+    priceFrom:'9.99 مليون ج.م', area:'48م – 63م',
+    audience:['business','investor'],
+    facts:[['الموقع','3 واجهات — ناصية المحور الغربي'],['عيادات','من 57م'],['Plan C خصم','20%']],
+    kv:[['Plan A','10% — 10 سنوات'],['Plan B','5% — 8 سنوات'],['Plan C','20% — 5 سنوات — خصم 20%'],['صيانة','10%']],
+    units:[['إداري 18 — 49م','10,206,000 ج.م'],['عيادة 3 — 57م','9,993,000 ج.م'],['إداري 23 — 63م','12,841,000 ج.م']],
+    plans:[['A','10%','10 سنوات','بدون خصم'],['B','5%','8 سنوات','بدون خصم'],['C','20%','5 سنوات','20%']],
+    notes:'وحدة مميزة: إداري 63م دور 23، فيو محور بن زايد + النهر الأخضر، 12,841,000 ج.م',
+    opportunity:'مكتب أو عيادة على محور بن زايد والنهر الأخضر، موقع استراتيجي بامتياز لصاحب الأعمال أو المستثمر الطبي.'
+  },
+  {
+    id:'dm-crown', company:'Dubai Misr', name:'Lumia Crown Hotel', type:'hotel',
+    typeLabel:'فندقي', location:'R7 — العاصمة الإدارية', delivery:'3/2030', deliveryNow:false,
+    priceFrom:'غير محدد', area:'—',
+    audience:['investor'],
+    facts:[['المقدم','10%'],['التقسيط','10 سنوات'],['صيانة','10%']],
+    kv:[['الاستلام','3/2030'],['—',''],['—',''],['—','']],
+    units:[['—','يُحدد عند الحجز']],
+    plans:[['موحّد','10%','10 سنوات','—']],
+    notes:'استثمار فندقي طويل الأجل في R7',
+    opportunity:'فرصة استثمار فندقي على المدى الطويل لمن يبحث عن استلام بعيد نسبياً (2030).'
+  },
+
+  // ---------------- winvestor ----------------
+  {
+    id:'wv-sheraton', company:'winvestor Development', name:'I-Sheraton Compound', type:'res',
+    typeLabel:'سكني SMART', location:'شيراتون — أمام مطار القاهرة', delivery:'12/2026', deliveryNow:false,
+    priceFrom:'4.96 مليون ج.م', area:'87م – 204م',
+    audience:['luxury','family'],
+    facts:[['أمام','مطار القاهرة الدولي'],['إدارة فندقية','Ashranda'],['أول كمبوند ذكي','بمنطقة شيراتون']],
+    kv:[['خصم كاش','حتى 35%'],['التقسيط','حتى 4 سنوات'],['Parking','250,000 ج.م'],['صيانة','6%']],
+    units:[['115م','6,900,000 ج.م'],['165م','9,075,000 ج.م'],['180م','9,900,000 ج.م'],['204م','11,628,000 ج.م']],
+    plans:[['كاش','—','فوري','حتى 35%'],['تقسيط','—','حتى 4 سنوات','حسب الخطة']],
+    notes:'جراج 10,000م² · جيم وسبا · مصلى وحضانة · Valet Parking',
+    opportunity:'كمبوند SMART أمام المطار مباشرة بخدمات فندقية، استلام قريب 12/2026 — مناسب لساكن راقي بالقاهرة.'
+  },
+  {
+    id:'wv-urevia', company:'winvestor Development', name:'Urevia Community', type:'res',
+    typeLabel:'سكني فندقي', location:'غير محدد', delivery:'غير محدد', deliveryNow:false,
+    priceFrom:'5.38 مليون ج.م (بعد خصم)', area:'145م (نموذج)',
+    audience:['investor_mid','family'],
+    facts:[['نسبة البناء','18%'],['مساحات خضراء ومائية','82%'],['حمامات سباحة','3']],
+    kv:[['نظام 1','12% مقدم — 12 سنة'],['نظام 2','10% مقدم — 9 سنوات'],['نظام 3','15% مقدم — 10 سنوات'],['نظام 4','25% مقدم — خصم 30%']],
+    units:[['وحدة 3 غرف 145م','5,974,000 ج.م (قبل خصم)']],
+    plans:[['1','12%','12 سنة','—'],['2','10%','9 سنوات — قسط 44,800 ج.م','—'],['3','15%','10 سنوات — قسط 38,000 ج.م','—'],['4','25%','5 سنوات','30%']],
+    notes:'Clubhouse 150,000 بدلاً من 250,000 · فندق 5 نجوم وشقق فندقية داخل المجتمع',
+    opportunity:'مقدم 25% يعطي خصم 30% على 5 سنوات — أفضل فرصة للمستثمر العقاري الباحث عن خصم سريع.'
+  },
+
+  // ---------------- Dominar ----------------
+  {
+    id:'dom-winterpark', company:'Dominar Developments', name:'Winter Park Compound', type:'res',
+    typeLabel:'سكني SMART', location:'العاصمة الإدارية', delivery:'غير محدد', deliveryNow:false,
+    priceFrom:'4.09 مليون ج.م', area:'113.5م – 152م',
+    audience:['family','investor_mid'],
+    facts:[['الإدارة','شركة التزام الإماراتية'],['النظام الذكي','Huawei'],['عرض 1','0% مقدم — 12 سنة']],
+    kv:[['وحدة C1-202','3 غرف 152م — 5,472,500 ج.م'],['وحدة C4-804','2 غرفة 113.5م — 4,086,000 ج.م'],['Parking+Club','250,000 ج.م'],['—','']],
+    units:[['3 غرف 152م (فيو كلوب هاوس)','5,472,500 ج.م'],['2 غرفة 113.5م (فيو سنترال بارك)','4,086,000 ج.م']],
+    plans:[['0% مقدم','0%','12 سنة — ربع سنوي 102,600','بدون فوائد'],['2.5% مقدم','2.5%','12 سنة — شهري 25,537','بدون فوائد']],
+    notes:'كمبوند SMART بالكامل عبر Huawei — إدارة فندقية إماراتية',
+    opportunity:'يبدأ بدون مقدم إطلاقاً، قسط ربع سنوي فقط 102,600 ج.م على 12 سنة — مثالي لصاحب رأس المال المحدود.'
+  },
+  {
+    id:'dom-threesquare', company:'Dominar Developments', name:'Three Square', type:'mixed',
+    typeLabel:'إداري/تجاري', location:'الحي المالي', delivery:'فوري (12/2025)', deliveryNow:true,
+    priceFrom:'—', area:'—',
+    audience:['investor','business'],
+    facts:[['التسليم','قبل الموعد بـ6 شهور'],['المقدم','30%'],['التقسيط','4 سنوات']],
+    kv:[['الموقع','الحي المالي'],['الحالة','استلام فوري'],['—',''],['—','']],
+    units:[['—','يُحدد عند الحجز']],
+    plans:[['موحّد','30%','4 سنوات','—']],
+    notes:'مشروع قائم بالفعل — استلام فوري',
+    opportunity:'استلام فوري في الحي المالي مع مقدم 30% فقط — مناسب للمستثمر الباحث عن دخول سريع.'
+  },
+  {
+    id:'dom-businessgate', company:'Dominar Developments', name:'Business Gate', type:'mixed',
+    typeLabel:'إداري/تجاري', location:'الحي المالي', delivery:'8/2028', deliveryNow:false,
+    priceFrom:'سعر المتر 125,000 ج.م', area:'—',
+    audience:['business'],
+    facts:[['سعر المتر','125,000 ج.م (بدلاً من 140,000)'],['المقدم','10%'],['التقسيط','7 سنوات (بدلاً من 6)']],
+    kv:[['الموقع','الحي المالي'],['الاستلام','8/2028'],['حالة الإنشاء','بدء التسوية'],['—','']],
+    units:[['—','حسب المساحة المطلوبة']],
+    plans:[['موحّد','10%','7 سنوات','خصم على سعر المتر 15,000 ج.م/م']],
+    notes:'',
+    opportunity:'سعر المتر مخفض 15 ألف جنيه مع مقدم 10% فقط وتقسيط ممتد لـ7 سنوات — جيد لصاحب الأعمال.'
+  },
+
+  // ---------------- Zaytoun ----------------
+  {
+    id:'zt-midz', company:'Zaytoun Developments', name:'MID.Z', type:'com',
+    typeLabel:'إداري', location:'الحي الإداري', delivery:'غير محدد', deliveryNow:false,
+    priceFrom:'3.18 مليون ج.م (قبل خصم)', area:'من 37م',
+    audience:['investor','business'],
+    facts:[['سعر المتر','86,000 ج.م'],['خصم','15% على كل الوحدات'],['Incentive بروكر','3%']],
+    kv:[['المقدم','10%'],['التقسيط','حتى 12 سنة'],['موقع','3 محاور رئيسية'],['الطلب','مرتفع جداً']],
+    units:[['مكتب 37م قبل الخصم','3,182,000 ج.م'],['مكتب 37م بعد خصم 15%','2,704,700 ج.م']],
+    plans:[['موحّد','10%','حتى 12 سنة','15%']],
+    notes:'فرصة سريعة للإغلاق وكوميشن مضمون للبروكر',
+    opportunity:'خصم 15% على كل الوحدات بمقدم 10% فقط — موقع على 3 محاور رئيسية، مطلوب جداً في السوق.'
+  },
+  {
+    id:'zt-inizio', company:'Zaytoun Developments', name:'Inizio', type:'com',
+    typeLabel:'إداري', location:'الحي المالي', delivery:'فوري / 1.5 سنة', deliveryNow:true,
+    priceFrom:'7.99 مليون ج.م', area:'47م',
+    audience:['investor','business'],
+    facts:[['المقدم','10%'],['التقسيط','حتى 8 سنوات'],['وحدات فورية','مقدم 25% — 6 سنوات']],
+    kv:[['الدور','السابع'],['الإطلالة','واجهة ناصية مفتوحة'],['الاستلام','خلال سنة ونصف'],['—','']],
+    units:[['Inizio Mall 47م','7,990,000 ج.م (قبل خصم)']],
+    plans:[['الأول','10%','6 سنوات','10%'],['الثاني','20%','7 سنوات','5%'],['الثالث','25%','8 سنوات','0%']],
+    notes:'وحدات استلام فوري متاحة بمقدم 25%',
+    opportunity:'استلام فوري متاح، واجهة ناصية بفيو مفتوح — مناسب لصاحب رأس المال المتوسط الباحث عن دخول سريع.'
+  },
+  {
+    id:'zt-zamall', company:'Zaytoun Developments', name:'ZA Mall', type:'com',
+    typeLabel:'تجاري', location:'غير محدد', delivery:'فوري', deliveryNow:true,
+    priceFrom:'5.2 مليون ج.م', area:'26م',
+    audience:['business','investor'],
+    facts:[['التشطيب','75%'],['المقدم','15%'],['استلام فوري','مقدم 35% — 4 سنوات']],
+    kv:[['المساحة','26م'],['التقسيط','حتى 7 سنوات'],['—',''],['—','']],
+    units:[['محل 26م','5,199,995 ج.م (بعد خصم)']],
+    plans:[['الأول','15%','6 سنوات','شامل'],['الثاني','20%','7 سنوات','شامل'],['فوري','35%','4 سنوات','بدون خصم']],
+    notes:'موقع يخدم حركة عملاء عالية في التنزه والتسوق',
+    opportunity:'استلام فوري في موقع تجاري حيوي — مناسب للمستثمر التجاري الباحث عن دخل سريع.'
+  },
+  {
+    id:'zt-lunara', company:'Zaytoun Developments', name:'LUNARA', type:'res',
+    typeLabel:'فيلات', location:'New Zayed', delivery:'غير محدد', deliveryNow:false,
+    priceFrom:'غير محدد', area:'—',
+    audience:['luxury','family'],
+    facts:[['نوع الوحدات','فيلات كمبوند'],['المقدم','10%'],['التقسيط','حتى 10 سنوات']],
+    kv:[['الموقع','نيو زايد'],['—',''],['—',''],['—','']],
+    units:[['—','يُحدد عند الحجز']],
+    plans:[['موحّد','10%','10 سنوات','—']],
+    notes:'',
+    opportunity:'فيلات في New Zayed بمقدم 10% فقط — للباحث عن سكن فاخر خارج العاصمة الإدارية.'
+  }
+];
+
+/* type label colors */
+const TYPE_CLASS = {res:'tag-res', com:'tag-com', hotel:'tag-hotel', mixed:'tag-mixed'};
+
+const TYPE_OPTIONS = [
+  {key:'res', label:'سكني'},
+  {key:'com', label:'تجاري'},
+  {key:'mixed', label:'إداري/مختلط'},
+  {key:'hotel', label:'فندقي'},
+];
+const DELIVERY_OPTIONS = [
+  {key:'now', label:'استلام فوري'},
+  {key:'soon', label:'خلال 3 سنوات'},
+];
+const AUDIENCE_OPTIONS = [
+  {key:'family', label:'عائلة راقية'},
+  {key:'investor', label:'مستثمر عائد'},
+  {key:'investor_mid', label:'رأس مال متوسط'},
+  {key:'business', label:'صاحب أعمال'},
+  {key:'luxury', label:'باحث عن تميز'},
+];
+
+const state = {
+  search:'', type:null, delivery:null, audience:null, company:null
+};
+
+/* ======================= RENDER FILTER CHIPS ======================= */
+function renderChipGroup(containerId, options, stateKey){
+  const el = document.getElementById(containerId);
+  el.innerHTML = options.map(o=>
+    `<button class="chip" data-key="${stateKey}" data-val="${o.key}">${o.label}</button>`
+  ).join('');
+}
+renderChipGroup('typeFilters', TYPE_OPTIONS, 'type');
+renderChipGroup('deliveryFilters', DELIVERY_OPTIONS, 'delivery');
+renderChipGroup('audienceFilters', AUDIENCE_OPTIONS, 'audience');
+
+const companies = [...new Set(DATA.map(d=>d.company))];
+renderChipGroup('companyFilters', companies.map(c=>({key:c,label:c})), 'company');
+
+document.querySelectorAll('.chip').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const key = btn.dataset.key, val = btn.dataset.val;
+    state[key] = state[key] === val ? null : val;
+    document.querySelectorAll(`.chip[data-key="${key}"]`).forEach(c=>c.classList.remove('active'));
+    if(state[key]) btn.classList.add('active');
+    render();
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input', e=>{
+  state.search = e.target.value.trim().toLowerCase();
+  render();
+});
+
+document.getElementById('clearBtn').addEventListener('click', ()=>{
+  state.search=''; state.type=null; state.delivery=null; state.audience=null; state.company=null;
+  document.getElementById('searchInput').value='';
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  render();
+});
+
+/* ======================= FILTER + RENDER GRID ======================= */
+function matches(item){
+  if(state.type && item.type !== state.type) return false;
+  if(state.company && item.company !== state.company) return false;
+  if(state.audience && !item.audience.includes(state.audience)) return false;
+  if(state.delivery === 'now' && !item.deliveryNow) return false;
+  if(state.delivery === 'soon' && !(item.deliveryNow || /[1-3]\s*سن/.test(item.delivery) || /202[6-9]/.test(item.delivery))) return false;
+  if(state.search){
+    const hay = (item.name+' '+item.company+' '+item.location+' '+item.typeLabel).toLowerCase();
+    if(!hay.includes(state.search)) return false;
+  }
+  return true;
+}
+
+function render(){
+  const results = DATA.filter(matches);
+  document.getElementById('resultCount').innerHTML = `<b>${results.length}</b> مشروع من إجمالي ${DATA.length}`;
+  const grid = document.getElementById('grid');
+  if(results.length===0){
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+      <span class="display">مفيش نتائج تطابق البحث</span>
+      جرب تمسح بعض الفلاتر أو غيّر كلمة البحث
+    </div>`;
+    return;
+  }
+  grid.innerHTML = results.map(item=>`
+    <div class="card" data-id="${item.id}">
+      <div class="card-top">
+        <div>
+          <div class="card-company">${item.company}</div>
+          <div class="card-title display">${item.name}</div>
+          <div class="card-loc">📍 ${item.location}</div>
+        </div>
+        <div class="type-tag ${TYPE_CLASS[item.type]}">${item.typeLabel}</div>
+      </div>
+      <div class="card-facts">
+        ${item.facts.map(f=>`<div class="fact">${f[0]}: <b>${f[1]}</b></div>`).join('')}
+      </div>
+      <div class="card-foot">
+        <div class="price-from">يبدأ من <b>${item.priceFrom}</b></div>
+        <div class="delivery-badge ${item.deliveryNow?'now':''}">${item.deliveryNow?'⚡ ':''}${item.delivery}</div>
+      </div>
+    </div>
+  `).join('');
+
+  grid.querySelectorAll('.card').forEach(card=>{
+    card.addEventListener('click', ()=> openDrawer(card.dataset.id));
+  });
+}
+
+/* ======================= DRAWER ======================= */
+const overlay = document.getElementById('overlay');
+const drawer = document.getElementById('drawer');
+
+function openDrawer(id){
+  const item = DATA.find(d=>d.id===id);
+  if(!item) return;
+
+  drawer.innerHTML = `
+    <div class="drawer-head">
+      <button class="drawer-close" id="drawerClose">✕</button>
+      <div class="drawer-company">${item.company}</div>
+      <div class="drawer-title display">${item.name}</div>
+      <div class="drawer-loc">📍 ${item.location} &nbsp;·&nbsp; <span class="type-tag ${TYPE_CLASS[item.type]}">${item.typeLabel}</span></div>
+    </div>
+    <div class="drawer-body">
+
+      <div class="section">
+        <div class="section-label">بيانات أساسية</div>
+        <div class="kv-grid">
+          ${item.kv.filter(k=>k[0]!=='—').map(k=>`<div class="kv"><div class="k">${k[0]}</div><div class="v">${k[1]}</div></div>`).join('')}
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">الوحدات والأسعار</div>
+        ${item.units.map(u=>`<div class="unit-pill"><span class="name">${u[0]}</span><span class="val">${u[1]}</span></div>`).join('')}
+      </div>
+
+      <div class="section">
+        <div class="section-label">أنظمة السداد</div>
+        <div class="price-table-wrap">
+        <table class="plan-table">
+          <thead><tr><th>النظام</th><th>المقدم</th><th>المدة</th><th>الخصم</th></tr></thead>
+          <tbody>
+            ${item.plans.map(p=>`<tr><td>${p[0]}</td><td class="hl">${p[1]}</td><td>${p[2]}</td><td class="hl">${p[3]}</td></tr>`).join('')}
+          </tbody>
+        </table>
+        </div>
+        ${item.notes?`<div style="margin-top:10px;font-size:13px;color:var(--paper-dim);line-height:1.7">📌 ${item.notes}</div>`:''}
+      </div>
+
+      <div class="section">
+        <div class="section-label">الفرصة الاستثمارية</div>
+        <div class="opportunity">
+          <span class="who">ليه تقترحه دلوقتي؟</span>
+          ${item.opportunity}
+        </div>
+      </div>
+
+      <div class="contact-bar">
+        <div>معرض Upper Gate Egypt 2026<br><b>المنيا 3–4 يوليو · سوهاج 10–11 يوليو</b></div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+  overlay.classList.add('open');
+  drawer.classList.add('open');
+}
+
+function closeDrawer(){
+  overlay.classList.remove('open');
+  drawer.classList.remove('open');
+}
+overlay.addEventListener('click', closeDrawer);
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeDrawer(); });
+
+render();
+</script>
+</body>
+</html>
